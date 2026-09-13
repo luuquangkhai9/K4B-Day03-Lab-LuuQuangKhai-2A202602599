@@ -1,8 +1,8 @@
 # 📊 BÁO CÁO THU HOẠCH NGHIỆM THU BÀI LAB 3 (BƯỚC 3 — SUBMISSION ARTIFACT)
 
-> **Họ và Tên Học viên:** [Điền Họ và Tên]  
-> **Mã Sinh Viên / Mã Học viên:** [Điền MSSV]  
-> **Chủ đề Lựa chọn:** [Điền tên chủ đề đã chọn từ docs/DANH_SACH_DE_TAI.md hoặc Đề tài Mở]  
+> **Họ và Tên Học viên:** Lưu Quang Khải  
+> **Mã Sinh Viên / Mã Học viên:** 2A202602599 
+> **Chủ đề Lựa chọn:** *Trợ lý Đơn hàng & Kho vận (Supply Chain Agent):* Tra cứu mã vận đơn, vị trí lưu kho và cập nhật trạng thái đơn hàng.  
 
 ---
 
@@ -10,11 +10,11 @@
 
 | Tiêu chí Đánh giá | Mức độ (1 - 5) | Giải trình chi tiết lý do chọn điểm |
 | :--- | :---: | :--- |
-| **1. Multi-step Reasoning** | / 5 | Bài toán có yêu cầu chia nhỏ nhiều bước suy luận nối tiếp nhau không? |
-| **2. Tool Interaction** | / 5 | Hệ thống có cần kết nối với MCP Server / Cơ sở dữ liệu bên ngoài không? |
-| **3. Dynamic Decision** | / 5 | Bước tiếp theo có phụ thuộc vào kết quả quan sát bước trước không? |
-| **4. Long Horizon Goal** | / 5 | Hệ thống có phải giữ mục tiêu xuyên suốt qua nhiều lượt xử lý không? |
-| **TỔNG ĐIỂM AGENTIC FIT** | **/ 20** | *Nếu tổng điểm > 12/20: Bài toán rất phù hợp triển khai Agentic System.* |
+| **1. Multi-step Reasoning** | **5** / 5 | Bài toán đòi hỏi chuỗi suy luận logic nhiều bước tuần tự: (1) Tiếp nhận và trích xuất mã vận đơn/mã kiện hàng từ yêu cầu tự nhiên; (2) Suy luận tra cứu vị trí kho (Khu vực/Kệ/Tầng); (3) Đối chiếu điều kiện nghiệp vụ kho vận (tính sẵn sàng, hợp lệ); (4) Ra quyết định thực thi cập nhật trạng thái đơn và tổng hợp thông tin phản hồi. |
+| **2. Tool Interaction** | **5** / 5 | Hệ thống không thể dùng tri thức tĩnh có sẵn (parametric knowledge) mà bắt buộc phải kết nối 2 chiều với hệ thống WMS/ERP qua MCP Server: Tool đọc (`query_shipment` / `get_inventory_location`) để lấy dữ liệu thời gian thực và Tool ghi (`update_order_status`) để cập nhật trạng thái vào cơ sở dữ liệu. |
+| **3. Dynamic Decision** | **5** / 5 | Nhánh xử lý tiếp theo phụ thuộc hoàn toàn vào kết quả quan sát (Observation) từ Tool ở bước trước: Nếu mã vận đơn không tồn tại thì xử lý ngoại lệ; Nếu đơn hàng đang bị khóa/hư hại (Hold/Damaged) thì chuyển luồng thông báo sự cố; Nếu hợp lệ thì tiến hành cập nhật trạng thái mới. |
+| **4. Long Horizon Goal** | **4** / 5 | Agent cần duy trì mục tiêu xử lý đơn hàng xuyên suốt chuỗi hội thoại đa lượt (multi-turn): từ tra cứu vị trí, hỏi xác nhận thông tin bổ sung từ nhân sự kho (Human-in-the-loop), đến thực thi cập nhật và lưu vết audit log thành công. |
+| **TỔNG ĐIỂM AGENTIC FIT** | **19 / 20** | *Kết luận: 19/20 >> 12/20. Bài toán cực kỳ phù hợp để phát triển ReAct Agent tích hợp MCP Server.* |
 
 ---
 

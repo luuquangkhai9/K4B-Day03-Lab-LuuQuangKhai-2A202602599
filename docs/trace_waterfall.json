@@ -3,9 +3,9 @@
     "step": 1,
     "query": "Chào bạn, bạn có thể giới thiệu quy chế học vụ cơ bản của Đại học VinUni không?",
     "action_type": "FINAL_ANSWER",
-    "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool.",
-    "output": "[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
-    "latency_ms": 2845.93
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Chào bạn, tôi là Trợ lý Tác tử Học vụ Thông minh của Đại học VinUni. Rất vui được hỗ trợ bạn.\n\nVề quy chế học vụ cơ bản của Đại học VinUni, tôi có thể cung cấp một số thông tin chung như sau:\n\n*   **Hệ thống tín chỉ:** VinUni áp dụng hệ thống tín chỉ, trong đó mỗi môn học có một số lượng tín chỉ nhất định. Sinh viên cần tích lũy đủ số tín chỉ theo yêu cầu của chương trình đào tạo để tốt nghiệp.\n*   **Điểm và đánh giá:** Kết quả học tập của sinh viên được đánh giá bằng điểm số (thường theo thang điểm 4 hoặc 10). Sinh viên cần đạt điểm tối thiểu cho mỗi môn học và điểm trung bình tích lũy để duy trì tình trạng học tập và tốt nghiệp.\n*   **Tiến độ học tập:** Sinh viên cần hoàn thành các môn học theo đúng tiến độ quy định của chương trình. Có các quy định về số tín chỉ tối thiểu và tối đa được đăng ký trong mỗi học kỳ.\n*   **Cố vấn học tập:** Mỗi sinh viên sẽ có một cố vấn học tập để hỗ trợ trong quá trình học tập, định hướng chuyên ngành và giải quyết các vấn đề liên quan đến học vụ.\n*   **Các quy định khác:** Ngoài ra, còn có các quy định về việc đăng ký môn học, rút môn, bảo lưu kết quả, kỷ luật học vụ, v.v.\n\nĐể có thông tin chi tiết và chính xác nhất về quy chế học vụ, bạn nên tham khảo Sổ tay sinh viên hoặc liên hệ trực tiếp với Phòng Đào tạo của VinUni.\n\nBạn có câu hỏi cụ thể nào khác về quy chế học vụ không? Hoặc bạn có muốn tôi tra cứu thông tin học vụ của bạn (nếu bạn là sinh viên VinUni) hay đặt lịch hẹn tư vấn không?",
+    "latency_ms": 5411.18
   },
   {
     "step": 1,
@@ -16,7 +16,7 @@
       "student_id": "SV2026001"
     },
     "observation": {},
-    "latency_ms": 799.12
+    "latency_ms": 2165.39
   },
   {
     "step": 2,

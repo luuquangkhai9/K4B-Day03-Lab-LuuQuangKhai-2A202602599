@@ -28,20 +28,60 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
 [
   {
     "step": 1,
+    "query": "Kiểm tra xem đơn hàng VN-LOG2026-01 hiện đang nằm ở vị trí kho nào, sau đó cập nhật trạng thái đơn hàng sang 'Sẵn sàng xuất kho'.",
     "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
+    "thought": "Tôi cần tra cứu thông tin đơn hàng VN-LOG2026-01 để biết vị trí kho hiện tại trước khi cập nhật trạng thái đơn hàng.",
+    "tool_name": "query_shipment",
     "arguments": {
-      "student_id": "SV2026001"
+      "tracking_id": "VN-LOG2026-01"
     },
     "observation": {
       "status": "SUCCESS",
-      "student_id": "SV2026001",
+      "tracking_id": "VN-LOG2026-01",
       "data": {
-        "full_name": "Nguyễn Văn An",
-        "gpa": 3.85
-      }
+        "tracking_id": "VN-LOG2026-01",
+        "order_id": "ORD-2026-001",
+        "item_name": "Linh kiện Cảm biến LiDAR & Bộ điều khiển",
+        "quantity": 10,
+        "sender": "VinFast Hải Phòng",
+        "recipient": "Đại học VinUni, Gia Lâm, Hà Nội",
+        "status": "Đã nhập kho",
+        "warehouse_location": "Khu A, Kệ A-12, Tầng 3",
+        "last_updated": "14:30 15/09/2026"
+      },
+      "message": "Tìm thấy kiện hàng VN-LOG2026-01: Mặt hàng 'Linh kiện Cảm biến LiDAR & Bộ điều khiển', Trạng thái 'Đã nhập kho', Vị trí lưu kho 'Khu A, Kệ A-12, Tầng 3', Số lượng: 10."
     },
-    "latency_ms": 120.5
+    "latency_ms": 1870.53
+  },
+  {
+    "step": 2,
+    "query": "Kiểm tra xem đơn hàng VN-LOG2026-01 hiện đang nằm ở vị trí kho nào, sau đó cập nhật trạng thái đơn hàng sang 'Sẵn sàng xuất kho'.",
+    "action_type": "TOOL_EXECUTION",
+    "thought": "Đơn hàng VN-LOG2026-01 hiện đang ở vị trí 'Khu A, Kệ A-12, Tầng 3' và có trạng thái 'Đã nhập kho'. Tôi sẽ cập nhật trạng thái đơn hàng sang 'Sẵn sàng xuất kho'.",
+    "tool_name": "update_order_status",
+    "arguments": {
+      "tracking_id": "VN-LOG2026-01",
+      "status": "Sẵn sàng xuất kho",
+      "warehouse_location": "Khu A, Kệ A-12, Tầng 3",
+      "note": "Cập nhật trạng thái lúc 14:30 15/09/2026"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "update_id": "UP-VN-LOG2026-01-99",
+      "tracking_id": "VN-LOG2026-01",
+      "order_status": "Sẵn sàng xuất kho",
+      "warehouse_location": "Khu A, Kệ A-12, Tầng 3",
+      "message": "Cập nhật thành công đơn hàng VN-LOG2026-01: Trạng thái 'Sẵn sàng xuất kho', vị trí lưu kho 'Khu A, Kệ A-12, Tầng 3'."
+    },
+    "latency_ms": 1438.23
+  },
+  {
+    "step": 3,
+    "query": "Kiểm tra xem đơn hàng VN-LOG2026-01 hiện đang nằm ở vị trí kho nào, sau đó cập nhật trạng thái đơn hàng sang 'Sẵn sàng xuất kho'.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Mô hình phân tích thông tin và phản hồi trực tiếp cho người dùng.",
+    "output": "Tôi đã kiểm tra thông tin đơn hàng VN-LOG2026-01 và nhận được kết quả như sau:\n\n- **Mặt hàng**: Linh kiện Cảm biến LiDAR & Bộ điều khiển\n- **Số lượng**: 10\n- **Người gửi**: VinFast Hải Phòng\n- **Người nhận**: Đại học VinUni, Gia Lâm, Hà Nội\n- **Trạng thái hiện tại**: Đã nhập kho\n- **Vị trí lưu kho**: Khu A, Kệ A-12, Tầng 3\n\nSau đó, tôi đã cập nhật trạng thái đơn hàng sang **'Sẵn sàng xuất kho'**.\n\nThông tin cập nhật thành công như sau:\n- **Trạng thái mới**: Sẵn sàng xuất kho\n- **Vị trí lưu kho**: Khu A, Kệ A-12, Tầng 3\n\nNếu bạn cần thêm thông tin gì khác, hãy cho tôi biết!",
+    "latency_ms": 2327.98
   }
 ]
 ```
@@ -50,10 +90,10 @@ Dán 1 đoạn trích xuất log tiêu biểu từ file `docs/trace_waterfall.js
 
 ## 3. TỔNG KẾT KẾT QUẢ NGHIỆM THU & NỘP BÀI
 
-- [ ] Đã điền API Key thật trong `.env` và xác nhận Agent chạy mượt mà trên LLM API thật (Gemini/OpenAI).
-- **Tổng số Test Cases đã chạy thành công:** ___ / 5 test cases.
-- **Số lượt gọi Tool qua MCP Server chính xác:** ___ lượt.
-- **Kết quả đẩy Repo nộp bài:** [ ] Đã Commit và Push mã nguồn thành công lên GitHub cá nhân.
+- [x] Đã điền API Key thật trong `.env` và xác nhận Agent chạy mượt mà trên LLM API thật (OpenAI `gpt-4o-mini`).
+- **Tổng số Test Cases đã chạy thành công:** **5** / 5 test cases.
+- **Số lượt gọi Tool qua MCP Server chính xác:** **5** lượt (bao gồm chuỗi 2 Tool gọi tuần tự trong TC04 đa bước: `query_shipment` ➔ `update_order_status`).
+- **Kết quả đẩy Repo nộp bài:** [x] Đã Commit và Push mã nguồn thành công lên GitHub cá nhân.
 
 ---
 

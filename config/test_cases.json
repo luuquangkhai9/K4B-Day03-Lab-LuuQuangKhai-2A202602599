@@ -2,36 +2,36 @@
   {
     "id": "TC01",
     "type": "direct_query",
-    "question": "Chào bạn, bạn có thể giới thiệu quy chế học vụ cơ bản của Đại học VinUni không?",
-    "expected_behavior": "Chatbot trả lời trực tiếp từ System Prompt, không cần gọi bất kỳ Tool nào.",
+    "question": "Chào bạn, bạn có thể giới thiệu quy trình nhập kho và kiểm soát vị trí lưu kho tiêu chuẩn của chuỗi cung ứng không?",
+    "expected_behavior": "Chatbot trả lời trực tiếp từ System Prompt về quy trình kho vận, không cần gọi bất kỳ Tool nào.",
     "complexity": "Low"
   },
   {
     "id": "TC02",
     "type": "single_tool_query",
-    "question": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
-    "expected_behavior": "Agent nhận diện nhu cầu tra cứu, tự động phát sinh Tool Call 'academic_query' với mã SV2026001.",
+    "question": "Hãy tra cứu thông tin mã vận đơn và vị trí lưu kho của kiện hàng VN-LOG2026-01.",
+    "expected_behavior": "Agent nhận diện nhu cầu tra cứu, tự động phát sinh Tool Call tra cứu (ví dụ: 'query_shipment' hoặc 'warehouse_lookup') với mã vận đơn VN-LOG2026-01.",
     "complexity": "Medium"
   },
   {
     "id": "TC03",
-    "type": "appointment_booking",
-    "question": "TODO: [Học viên tự viết câu hỏi yêu cầu Agent đặt lịch hẹn tư vấn học vụ]",
-    "expected_behavior": "Agent tự động phát sinh Tool Call 'schedule_appointment' với đúng thời gian và thông tin sinh viên.",
+    "type": "order_status_update",
+    "question": "Hãy cập nhật trạng thái đơn hàng VN-LOG2026-01 thành 'Đã nhập kho' tại vị trí Kệ A-12, Tầng 3 vào lúc 14:30 hôm nay.",
+    "expected_behavior": "Agent tự động phát sinh Tool Call 'update_order_status' với đúng mã đơn hàng, trạng thái mới và vị trí lưu kho.",
     "complexity": "Medium"
   },
   {
     "id": "TC04",
     "type": "multi_step_reasoning",
-    "question": "TODO: [Học viên tự viết câu hỏi yêu cầu Agent suy luận ReAct đa bước (Tra cứu -> Đặt lịch với Cố vấn)]",
-    "expected_behavior": "Agent thực hiện chuỗi suy luận ReAct: Tra cứu cố vấn học tập của sinh viên trước, sau đó tiến hành đặt lịch hẹn.",
+    "question": "Kiểm tra xem đơn hàng VN-LOG2026-01 hiện đang nằm ở vị trí kho nào, sau đó cập nhật trạng thái đơn hàng sang 'Sẵn sàng xuất kho'.",
+    "expected_behavior": "Agent thực hiện chuỗi suy luận ReAct: Tra cứu vị trí và tình trạng đơn hàng trước, sau đó tiến hành gọi Tool cập nhật trạng thái đơn hàng.",
     "complexity": "High"
   },
   {
     "id": "TC05",
     "type": "edge_case_handling",
-    "question": "TODO: [Học viên tự viết câu hỏi tra cứu mã sinh viên không tồn tại (ví dụ SV9999999)]",
-    "expected_behavior": "Agent nhận kết quả NOT_FOUND từ Tool và đưa ra phản hồi lịch sự, chính xác không bịa đặt dữ liệu.",
+    "question": "Kiểm tra mã vận đơn VN-LOG9999-99 xem kiện hàng đang nằm ở vị trí kho nào và tình trạng ra sao?",
+    "expected_behavior": "Agent nhận kết quả NOT_FOUND từ Tool và đưa ra phản hồi lịch sự, chính xác thông báo không tìm thấy mã vận đơn, không bịa đặt dữ liệu.",
     "complexity": "Medium"
   }
 ]
